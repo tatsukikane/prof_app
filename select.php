@@ -3,13 +3,13 @@
 try {
   //Password:MAMP='root',XAMPP=''
   //$pdo = new PDO('mysql:dbname=さくらDB名;charset=utf8;host=さくらMySQL','ユーザ名','接続先パスワード');
-  $pdo = new PDO('mysql:dbname=gs_db;charset=utf8;host=localhost','root','');
+  $pdo = new PDO('mysql:dbname=sov_map;charset=utf8;host=localhost','root','');
 } catch (PDOException $e) {
   exit('DBConnection Error:'.$e->getMessage());
 }
 
 //２．データ登録SQL作成
-$sql = "SELECT * FROM gs_an_table;";
+$sql = "SELECT * FROM sov_map_table;";
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
 

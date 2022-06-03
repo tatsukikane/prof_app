@@ -24,8 +24,14 @@
    <fieldset>
     <legend>フリーアンケート</legend>
      <label>名前：<input type="text" name="name"></label><br>
-     <label>Email：<input type="text" name="email"></label><br>
-     <label><textArea name="naiyou" rows="4" cols="40"></textArea></label><br>
+     <label>insta:<input type="text" name="insta"></label><br>
+     <label>twitter:<input type="text" name="twitter"></label><br>
+     <label>facebook:<input type="text" name="facebook"></label><br>
+     <label>出身地：<input type="text" name="birthplace"></label><br>
+     <label>価値観タグ:<input type="text" name="sov"></label><br>
+     <label>キャリア：<textArea name="career" rows="4" cols="40"></textArea></label><br>
+     <label>人生価値観詳細：<textArea name="sov_detail" rows="4" cols="40"></textArea></label><br>
+
      <input type="submit" value="送信">
     </fieldset>
   </div>
