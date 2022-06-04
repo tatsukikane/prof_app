@@ -25,8 +25,21 @@ if($status==false) {
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $res = $stmt->fetch(PDO::FETCH_ASSOC)){
     $view .= "<p>";
-    $view .= $res["id"].", ".$res["name"]; // $res["id"]や$res["name"]
+    $view .= $res["id"].", ".$res["name"].", ".$res["birthplace"]; // $res["id"]や$res["name"]
     $view .= "</p>";
+    $datalist[] = array(
+      'id'=>$res["id"],
+      'name'=>$res["name"],
+      'birthplace'=>$res["birthplace"],
+      'sov'=>$res["sov"],
+      'career'=>$res["career"],
+      'sov_detail'=>$res["main_text"],
+      'insta'=>$res["insta"],
+      'twitter'=>$res["twitter"],
+      'facebook'=>$res["Facebook"],
+    );
+    $json = json_encode($datalist);
+    var_dump($json);
   }
 
 }
@@ -62,5 +75,10 @@ if($status==false) {
 </div>
 <!-- Main[End] -->
 
+<script>
+  //DBから取得したユーザーデータリスト
+  const userdata = <?php echo $json;?>;
+  console.log(userdata);
+</script>
 </body>
 </html>
