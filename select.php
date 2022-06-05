@@ -39,7 +39,7 @@ if($status==false) {
       'facebook'=>$res["Facebook"],
     );
     $json = json_encode($datalist);
-    var_dump($json);
+    // var_dump($json);
   }
 
 }
@@ -52,9 +52,11 @@ if($status==false) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>フリーアンケート表示</title>
-  <link rel="stylesheet" href="css/range.css">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="css/range.css"> -->
+  <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="./reset.css">
   <style>div{padding: 10px;font-size:16px;}</style>
+  <link rel="stylesheet" href="./select.css">
   <!-- vis.js -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
 </head>
@@ -77,14 +79,62 @@ if($status==false) {
     <div class="container jumbotron"><?=$view?></div>
 </div> -->
 <!-- Main[End] -->
-<div id="network"></div>
+<!-- <div id="network"></div> -->
 
+<!-- 個別プロフィール欄 -->
+<!-- prof_areaは非表示にしておいて、クリックされたら表示するようにしておく -->
+<div class="prof_area" id="prof_area">
+  <div class="prof_area_title" id="prof_area_title">
+    <h1>プロフィール</h1>
+  </div>
+  <div class="prof_area_main" id="prof_area_main">
+    <div class="content_are">
+      <h2>name:</h2>
+      <p id = "name">a</p>
+    </div>
+    <div class="content_are">
+      <h2>出身地:</h2>
+      <p id = "birthplace"></p>
+    </div>
+    <div class="content_are">
+      <h2>Instagram:</h2>
+      <p id = "insta">a</p>
+    </div>
+    <div class="content_are">
+      <h2>Twitter:</h2>
+      <a><p id = "twitter">a</p></a>
+    </div>
+    <div class="content_are">
+      <h2>facebook:</h2>
+      <p id = "facebook">a</p>
+    </div>
+    <div class="career_are">
+      <h2>経歴:</h2>
+      <p id = "career">a</p>
+    </div>
+    <div class="sov_detail">
+      <h2>人生観・価値観:</h2>
+      <p id = "sov_detail">a</p>
+    </div>
+  </div>
+</div>
+
+<div class="list_area">
+
+</div>
+
+<!-- Map表示 -->
+<div id="network"></div>
 
 
 <script>
   //DBから取得したユーザーデータリスト
   const userdata = <?php echo $json;?>;
   console.log(userdata);
+  function $(key){
+      return document.getElementById(key)
+  }
+  // $("name").textContent = "変更";
 
   //vis.js
   let nodes = new vis.DataSet([
@@ -114,19 +164,22 @@ if($status==false) {
           var node = nodes.get(nodeId);
           //ここにクリック時の処理を記述
           console.log(node.label + 'がクリックされました');
+          //クリックされた人物のオブジェクト取得
+          $("prof_area").style.display = 'block';
+          const targetUser = userdata.find((v) => v.name === node.label);
+          console.log(targetUser);
+          $("name").textContent = targetUser.name;
+          $("birthplace").textContent = targetUser.birthplace;
+          $("insta").textContent = targetUser.insta;
+          $("twitter").textContent = targetUser.twitter;
+          $("facebook").textContent = targetUser.facebook;
+          $("career").textContent = targetUser.career;
+          $("sov_detail").textContent = targetUser.sov_detail;
         }
       });
 
-      // const userdata = [
-      //   {name: "pennpenn", sov: 1},
-      //   {name: "jon", sov: 2},
-      //   {name: "ケビン", sov: 3}
-      // ]
-
+      //edges追加用配列
       const updateEdgesArray = [
-      // {from: 1, to: 2, arrows: 'to'},
-      // {from: 2, to: 3, arrows: 'to'},
-      // {from: 3, to: 4, arrows: 'to'},
       ];
 
       //PHPから受け取ったデータをMap描画用の配列に突っ込んでいく
@@ -134,13 +187,13 @@ if($status==false) {
         for(let i = 0; i < userdata.length; i++){
           let dataid = i+7; //map内識別ようid
           // console.log(userdata[i].name);
-          nodes.add({id:dataid ,label: userdata[i].name, group: 2});
-          console.log(userdata[i].sov);
-          console.log(dataid);
+          nodes.add({id:dataid ,label: userdata[i].name, group: userdata[i].sov});
+          // console.log(userdata[i].sov);
+          // console.log(dataid);
 
           updateEdgesArray.push ({from: dataid, to: userdata[i].sov, arrows: 'to'});
-          console.log(updateEdgesArray);
-          console.log(nodes);
+          // console.log(updateEdgesArray);
+          // console.log(nodes);
         }
         edges.update(updateEdgesArray);
       };

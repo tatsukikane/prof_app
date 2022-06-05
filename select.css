@@ -1,0 +1,24 @@
+.prof_area{
+  display: none;
+  text-align: center;
+}
+#network{
+  height: 580px;
+  border: 1px solid;
+}
+.container-fluid{
+  background-color: #dd4915;
+  color: white;
+}
+a:visited{
+  color: inherit;
+}
+
+.prof_area_title h1{
+  font-size: 56px;
+}
+.content_are{
+  display: flex;
+  justify-content: center;
+  
+}
