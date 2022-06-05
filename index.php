@@ -28,7 +28,18 @@
      <label>twitter:<input type="text" name="twitter"></label><br>
      <label>facebook:<input type="text" name="facebook"></label><br>
      <label>出身地：<input type="text" name="birthplace"></label><br>
-     <label>価値観タグ:<input type="text" name="sov"></label><br>
+     <!-- <label>価値観タグ:<input type="text" name="sov"></label><br> -->
+     <label>価値観タグ:
+      <select name="sov">
+        <option value=1>自由</option>
+        <option value=2>安定</option>
+        <option value=3>自然</option>
+        <option value=4>仕事</option>
+        <option value=5>プライベート</option>
+        <option value=6>家族</option>
+      </select>
+     </label><br>
+
      <label>キャリア：<textArea name="career" rows="4" cols="40"></textArea></label><br>
      <label>人生価値観詳細：<textArea name="sov_detail" rows="4" cols="40"></textArea></label><br>
 
