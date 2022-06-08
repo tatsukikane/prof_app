@@ -25,9 +25,10 @@ if($status==false) {
   //Selectデータの数だけ自動でループしてくれる
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $res = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $view .= "<p>";
-    $view .= $res["id"].", ".$res["name"].", ".$res["birthplace"]; // $res["id"]や$res["name"]
-    $view .= "</p>";
+    // $view .= "<p>";
+    // $view .= $res["id"].", ".$res["name"].", ".$res["birthplace"]; // $res["id"]や$res["name"]
+    // $view .= "</p>";
+
     $datalist[] = array(
       'id'=>$res["id"],
       'name'=>$res["name"],
@@ -53,12 +54,13 @@ if($status==false) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>フリーアンケート表示</title>
-  <!-- <link rel="stylesheet" href="css/range.css"> -->
-  <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="./reset.css">
-  <style>div{padding: 10px;font-size:16px;}</style>
-  <link rel="stylesheet" href="./select.css">
+  <link rel="stylesheet" href="css/range.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="./reset.css"> -->
+  <!-- <style>div{padding: 10px;font-size:16px;}</style> -->
+  <!-- <link rel="stylesheet" href="./select.css"> -->
   <!-- vis.js -->
+  <link rel="stylesheet" href="./select.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
 </head>
 
@@ -66,6 +68,7 @@ if($status==false) {
 <!-- Head[Start] -->
 <header>
   <nav class="navbar navbar-default">
+    <h1>Map</h1>
     <div class="container-fluid">
       <div class="navbar-header">
       <a class="navbar-brand" href="index.php">データ登録</a>
@@ -78,50 +81,45 @@ if($status==false) {
 </header>
 <!-- Head[End] -->
 
-<!-- Main[Start] -->
-<!-- <div>
-    <div class="container jumbotron"><?=$view?></div>
-</div> -->
-<!-- Main[End] -->
-<!-- <div id="network"></div> -->
 
 <!-- 個別プロフィール欄 -->
 <!-- prof_areaは非表示にしておいて、クリックされたら表示するようにしておく -->
 <div class="prof_area" id="prof_area">
   <div class="prof_area_title" id="prof_area_title">
-    <h1>プロフィール</h1>
+    <h1><span class="topt">プロフィール</span></h1>
   </div>
   <div class="prof_area_main" id="prof_area_main">
     <div class="content_are">
-      <h2>name:</h2>
-      <p id = "name">a</p>
+      <h2><span>Name:</span></h2>
+      <h2 id = "name">a</h2>
     </div>
     <div class="content_are">
-      <h2>出身地:</h2>
-      <p id = "birthplace"></p>
+      <h2><span>出身地:</span></h2>
+      <h2 id = "birthplace"></h2>
     </div>
     <div class="content_are">
-      <h2>Instagram:</h2>
-      <p id = "insta">a</p>
+      <h2><span>Instagram:</span></h2>
+      <h2 id = "insta">a</h2>
     </div>
     <div class="content_are">
-      <h2>Twitter:</h2>
-      <a><p id = "twitter">a</p></a>
+      <h2><span>Twitter:</span></h2>
+      <h2><p id = "twitter">a</p></h2>
     </div>
     <div class="content_are">
-      <h2>facebook:</h2>
-      <p id = "facebook">a</p>
+      <h2><span>facebook:</span></h2>
+      <h2 id = "facebook">a</h2>
     </div>
     <div class="career_are">
-      <h2>経歴:</h2>
-      <p id = "career">a</p>
+      <h2><span>経歴:</span></h2>
+      <h2 id = "career">a</h2>
     </div>
     <div class="sov_detail">
-      <h2>人生観・価値観:</h2>
-      <p id = "sov_detail">a</p>
+      <h2><span>人生観・価値観:</span></h2>
+      <h2 id = "sov_detail">a</h2>
     </div>
   </div>
 </div>
+
 
 <div class="list_area">
 

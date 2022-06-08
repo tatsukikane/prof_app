@@ -15,13 +15,19 @@ if($status==false) {
   sql_error($stmt);
 }else{
   while( $r = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $view .= '<a href="detail.php?id='.h($r["id"]).'">';
-    $view .= h($r["id"])."|".h($r["name"])."|".h($r["insta"])."|".h($r["indate"]);
-    $view .= '</a>';
-    $view .= " ";
+    $view .= '<tr>';
+    $view .= '<td>';
+    $view .= '<a href="user_detail.php?id='.h($r["id"]).'">'.h($r["id"]);
+    $view .= '</td><td></a>';
+    $view .= '<a href="user_detail.php?id='.h($r["id"]).'">'.h($r["name"]);
+    $view .= '</a></td><td>';
+    $view .= h($r["insta"]);
+    $view .= '</td><td>';
+    $view .= h($r["indate"]);
+    $view .= '</td><td>';
     $view .= '<a href="delete.php?id='.h($r["id"]).'">';
-    $view .= "[削除]<br>";
-    $view .= '</a>';
+    $view .= "[削除]";
+    $view .= '</a></td></tr>';
   }
 }
 ?>
@@ -56,8 +62,21 @@ if($status==false) {
 <!-- Head[End] -->
 
 <!-- Main[Start] -->
-<div>
-    <div class="container jumbotron"><?=$view?></div>
+<!-- テーブルで一覧表示 -->
+<div class="container jumbotron">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">インスタ</th>
+        <!-- <th scope="col">ログインパスワード</th> -->
+        <th scope="col">最終更新</th>
+        <th scope="col">削除</th>
+      </tr>
+    </thead>
+    <?=$view?>
+  </table>
 </div>
 <!-- Main[End] -->
 

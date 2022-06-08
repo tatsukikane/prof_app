@@ -11,6 +11,7 @@
 <!-- Head[Start] -->
 <header>
   <nav class="navbar navbar-default">
+  <h1>登録画面</h1>
     <div class="container-fluid">
     <div class="navbar-header"><a class="navbar-brand" href="select.php">MAP</a></div>
     <div class="navbar-header"><a class="navbar-brand" href="edit.php">編集画面</a></div>

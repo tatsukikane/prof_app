@@ -1,24 +1,31 @@
 .prof_area{
   display: none;
-  text-align: center;
-}
-#network{
-  height: 580px;
-  border: 1px solid;
-}
-.container-fluid{
-  background-color: #dd4915;
-  color: white;
-}
-a:visited{
-  color: inherit;
 }
 
-.prof_area_title h1{
-  font-size: 56px;
+#network{
+  height: 480px;
+  border-top: double 1px;
+}
+
+/* .prof_area{
+  display: flex;
+  justify-content: center;
+} */
+.prof_area{
+  text-align: center;
+}
+.prof_area_title{
+  text-align: center;
 }
 .content_are{
   display: flex;
   justify-content: center;
-  
+} 
+span {
+ 
+  background:linear-gradient(transparent 60%, #ff6 60%);
+
+}
+.topt{
+  background:linear-gradient(transparent 60%, #00bfff 60%);
 }

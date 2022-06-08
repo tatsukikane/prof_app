@@ -15,13 +15,24 @@ if($status==false) {
   sql_error($stmt);
 }else{
   while( $r = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $view .= '<a href="user_detail.php?id='.h($r["id"]).'">';
-    $view .= h($r["id"])."|".h($r["name"])."|".h($r["lid"])."|".h($r["kanri_flg"]);
-    $view .= '</a>';
-    $view .= "   ";
-    $view .= '<a href="user_delete.php?id='.h($r["id"]).'">';
-    $view .= "[削除]<br>";
-    $view .= '</a>';
+    $view .= '<tr>';
+    $view .= '<td>';
+    $view .= '<a href="user_detail.php?id='.h($r["id"]).'">'.h($r["id"]);
+    $view .= '</td><td></a>';
+    $view .= '<a href="user_detail.php?id='.h($r["id"]).'">'.h($r["name"]);
+    $view .= '</a></td><td>';
+    $view .= h($r["lid"]);
+    $view .= '</td><td>';
+    $view .= h($r["kanri_flg"]);
+    $view .= '</td></tr>';
+
+    // $view .= '<a href="user_detail.php?id='.h($r["id"]).'">';
+    // $view .= h($r["id"])."|".h($r["name"])."|".h($r["lid"])."|".h($r["kanri_flg"]);
+    // $view .= '</a>';
+    // $view .= "   ";
+    // $view .= '<a href="user_delete.php?id='.h($r["id"]).'">';
+    // $view .= "[削除]<br>";
+    // $view .= '</a>';
   }
 }
 ?>
@@ -55,8 +66,22 @@ if($status==false) {
 <!-- Head[End] -->
 
 <!-- Main[Start] -->
-<div>
+<!-- <div>
     <div class="container jumbotron"><?=$view?></div>
+</div> -->
+<div class="container jumbotron">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">ログインID</th>
+        <!-- <th scope="col">ログインパスワード</th> -->
+        <th scope="col">管理者コード</th>
+      </tr>
+    </thead>
+    <?=$view?>
+  </table>
 </div>
 <!-- Main[End] -->
 
