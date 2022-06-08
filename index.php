@@ -12,7 +12,10 @@
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="select.php">データ一覧</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="select.php">MAP</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="edit.php">編集画面</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="manage.php">USER管理画面</a></div>
+
     </div>
   </nav>
 </header>
@@ -22,7 +25,7 @@
 <form method="post" action="insert.php">
   <div class="jumbotron">
    <fieldset>
-    <legend>フリーアンケート</legend>
+    <legend>プロフィール作成</legend>
      <label>名前：<input type="text" name="name"></label><br>
      <label>insta:<input type="text" name="insta"></label><br>
      <label>twitter:<input type="text" name="twitter"></label><br>

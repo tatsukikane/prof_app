@@ -1,4 +1,5 @@
 <?php
+//map画面
 //1.  DB接続します
 try {
   //Password:MAMP='root',XAMPP=''
@@ -68,6 +69,7 @@ if($status==false) {
     <div class="container-fluid">
       <div class="navbar-header">
       <a class="navbar-brand" href="index.php">データ登録</a>
+      <div class="navbar-header"><a class="navbar-brand" href="edit.php">編集画面</a></div>
       </div>
     </div>
   </nav>

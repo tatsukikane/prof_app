@@ -8,7 +8,7 @@ function h($str){
 function db_conn(){
     try {
         //localhostの場合
-        $db_name = "gs_db3";    //データベース名
+        $db_name = "sov_map";    //データベース名
         $db_id   = "root";      //アカウント名
         $db_pw   = "";          //パスワード：XAMPPはパスワード無しに修正してください。
         $db_host = "localhost"; //DBホスト
