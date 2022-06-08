@@ -48,7 +48,7 @@ if($status==false) {
       <div class="navbar-header">
       <div class="navbar-header"><a class="navbar-brand" href="index.php">データ登録</a></div>
       <div class="navbar-header"><a class="navbar-brand" href="select.php">MAP</a></div>
-      <div class="navbar-header"><a class="navbar-brand" href="manage.php">USER管理画面</a></div>
+      <div class="navbar-header"><a class="navbar-brand" href="user_select.php">USER管理画面</a></div>
       </div>
     </div>
   </nav>

@@ -1,5 +1,5 @@
+<!-- ユーザー管理画面(一覧 更新削除) -->
 <?php
-//USER管理画面
 include("funcs.php");
 $pdo = db_conn();  //接続設定
 
@@ -15,13 +15,13 @@ if($status==false) {
   sql_error($stmt);
 }else{
   while( $r = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $view .= '<a href="detail.php?id='.h($r["id"]).'">';
-    $view .= h($r["id"])."|".h($r["name"])."|".h($r["lid"])."|".h($r["kanri_flg"])."|".h($r["life_flg"]);
+    $view .= '<a href="user_detail.php?id='.h($r["id"]).'">';
+    $view .= h($r["id"])."|".h($r["name"])."|".h($r["lid"])."|".h($r["kanri_flg"]);
     $view .= '</a>';
-    // $view .= " ";
-    // $view .= '<a href="delete.php?id='.h($r["id"]).'">';
-    // $view .= "[削除]<br>";
-    // $view .= '</a>';
+    $view .= "   ";
+    $view .= '<a href="user_delete.php?id='.h($r["id"]).'">';
+    $view .= "[削除]<br>";
+    $view .= '</a>';
   }
 }
 ?>
@@ -44,11 +44,10 @@ if($status==false) {
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <h1>USER管理画面</h1>
+      <h1>USER管理画面(USER一覧　更新・削除)</h1>
       <div class="navbar-header">
-      <div class="navbar-header"><a class="navbar-brand" href="index.php">データ登録</a></div>
-      <div class="navbar-header"><a class="navbar-brand" href="select.php">MAP</a></div>
-      <div class="navbar-header"><a class="navbar-brand" href="edit.php">編集画面</a></div>
+      <div class="navbar-header"><a class="navbar-brand" href="user_index.php">管理ユーザー登録</a></div>
+      <div class="navbar-header"><a class="navbar-brand" href="select.php">ユーザーページへ戻る</a></div>
       </div>
     </div>
   </nav>

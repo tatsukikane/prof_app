@@ -14,7 +14,7 @@
     <div class="container-fluid">
     <div class="navbar-header"><a class="navbar-brand" href="select.php">MAP</a></div>
     <div class="navbar-header"><a class="navbar-brand" href="edit.php">編集画面</a></div>
-    <div class="navbar-header"><a class="navbar-brand" href="manage.php">USER管理画面</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="user_select.php">USER管理画面</a></div>
 
     </div>
   </nav>

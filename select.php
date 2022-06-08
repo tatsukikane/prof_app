@@ -70,6 +70,8 @@ if($status==false) {
       <div class="navbar-header">
       <a class="navbar-brand" href="index.php">データ登録</a>
       <div class="navbar-header"><a class="navbar-brand" href="edit.php">編集画面</a></div>
+      <div class="navbar-header"><a class="navbar-brand" href="user_select.php">USER管理画面</a></div>
+
       </div>
     </div>
   </nav>
