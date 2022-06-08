@@ -8,6 +8,7 @@ $twitter = $_POST["twitter"];
 $facebook = $_POST["facebook"];
 $birthplace = $_POST["birthplace"];
 $sov = $_POST["sov"];
+$sov2 = $_POST["sov2"];
 $career = $_POST["career"];
 $sov_detail = $_POST["sov_detail"];
 
@@ -23,13 +24,15 @@ try {
 }
 
 //３．データ登録SQL作成
-$sql = "INSERT INTO sov_map_table(name, birthplace, sov, career, main_text, insta, twitter, indate, Facebook) 
-VALUES(:name, :birthplace, :sov, :career, :main_text, :insta, :twitter, sysdate(), :Facebook);";
+$sql = "INSERT INTO sov_map_table(name, birthplace, sov, sov2, career, main_text, insta, twitter, indate, Facebook) 
+VALUES(:name, :birthplace, :sov, :sov2, :career, :main_text, :insta, :twitter, sysdate(), :Facebook);";
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':birthplace', $birthplace, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':sov', $sov, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':sov2', $sov2, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+
 $stmt->bindValue(':career', $career, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':main_text', $sov_detail, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 $stmt->bindValue(':insta', $insta, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)

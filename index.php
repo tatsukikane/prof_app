@@ -43,6 +43,16 @@
         <option value=6>家族</option>
       </select>
      </label><br>
+     <label>価値観タグ2:
+      <select name="sov2">
+        <option value=1>自由</option>
+        <option value=2>安定</option>
+        <option value=3>自然</option>
+        <option value=4>仕事</option>
+        <option value=5>プライベート</option>
+        <option value=6>家族</option>
+      </select>
+     </label><br>
 
      <label>キャリア：<textArea name="career" rows="4" cols="40"></textArea></label><br>
      <label>人生価値観詳細：<textArea name="sov_detail" rows="4" cols="40"></textArea></label><br>

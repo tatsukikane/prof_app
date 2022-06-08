@@ -29,11 +29,13 @@ if($status==false) {
     // $view .= $res["id"].", ".$res["name"].", ".$res["birthplace"]; // $res["id"]や$res["name"]
     // $view .= "</p>";
 
+    //map表示用list作成
     $datalist[] = array(
       'id'=>$res["id"],
       'name'=>$res["name"],
       'birthplace'=>$res["birthplace"],
       'sov'=>$res["sov"],
+      'sov2'=>$res["sov2"],
       'career'=>$res["career"],
       'sov_detail'=>$res["main_text"],
       'insta'=>$res["insta"],
@@ -74,7 +76,6 @@ if($status==false) {
       <a class="navbar-brand" href="index.php">データ登録</a>
       <div class="navbar-header"><a class="navbar-brand" href="edit.php">編集画面</a></div>
       <div class="navbar-header"><a class="navbar-brand" href="user_select.php">USER管理画面</a></div>
-
       </div>
     </div>
   </nav>
@@ -120,10 +121,7 @@ if($status==false) {
   </div>
 </div>
 
-
-<div class="list_area">
-
-</div>
+<div class="list_area"></div>
 
 <!-- Map表示 -->
 <div id="network"></div>
@@ -140,16 +138,23 @@ if($status==false) {
 
   //vis.js
   let nodes = new vis.DataSet([
-        {id: 1, label: '自由', group: 1, value: 20, scaling: { label: { enabled: true} }}, //大きいやつ
-        {id: 2, label: '安定', group: 2, value: 20, scaling: { label: { enabled: true} }}, //大きいやつ
-        {id: 3, label: '自然', group: 3, value: 20, scaling: { label: { enabled: true} }}, //大きいやつ
-        {id: 4, label: '仕事', group: 4, value: 20, scaling: { label: { enabled: true} }}, //大きいやつ
-        {id: 5, label: 'プライベート', group: 5, value: 20, scaling: { label: { enabled: true} }}, //大きいやつ
-        {id: 6, label: '家族', group: 6, value: 20, scaling: { label: { enabled: true} }}, //大きいやつ
+        {id: 1, label: '自由', group: 1, shape: "circle", font: {size: 80}, margin: 100, scaling: { label: { enabled: true} },}, //大きいやつ
+        {id: 2, label: '安定', group: 2, shape: "circle", font: {size: 80}, margin: 100, scaling: { label: { enabled: true} }}, //大きいやつ
+        {id: 3, label: '自然', group: 3, shape: "circle", font: {size: 80}, margin: 100, scaling: { label: { enabled: true} }}, //大きいやつ
+        {id: 4, label: '仕事', group: 4, shape: "circle", font: {size: 80}, margin: 100, caling: { label: { enabled: true} }}, //大きいやつ
+        {id: 5, label: 'プライベート', group: 5, shape: "circle", font: {size: 40}, margin: 50,  scaling: { label: { enabled: true} }}, //大きいやつ
+        {id: 6, label: '家族', group: 6, shape: "circle", font: {size: 80}, margin: 100, scaling: { label: { enabled: true} }}, //大きいやつ
       ]);
 
       console.log(nodes);
       let edges = new vis.DataSet([
+        { from: 1, to: 2, color: "rgb(20,24,200)" },
+        { from: 2, to: 3,  color: { color: "rgba(30,30,30,0.2)", highlight: "blue" }},
+        { from: 3, to: 4, color: { color: "red" } },
+        { from: 4, to: 5, color: "rgb(20,24,200)" },
+        { from: 5, to: 6, color: "rgb(20,24,200)" },
+        { from: 6, to: 1, color: "rgb(20,24,200)" },
+
       ]);
 
       var container = document.getElementById('network');
@@ -158,6 +163,55 @@ if($status==false) {
         edges: edges
       };
       var options = {
+        nodes: {
+      shape: "ellipse",
+      scaling: {
+        min: 10,
+        max: 30,
+      },
+      font: {
+        size: 50,
+        face: "Tahoma",
+      },
+    },
+    edges: {
+      width: 6.15,
+      color: { inherit: "from" },
+      smooth: {
+        type: "continuous",
+      },
+    },
+    physics: {
+      stabilization: false,
+      barnesHut: {
+        gravitationalConstant: -80000,
+        springConstant: 0.001,
+        springLength: 500,
+      },
+    },
+    interaction: {
+      tooltipDelay: 200,
+      hideEdgesOnDrag: true,
+    },
+
+
+        
+        // nodes: {
+        //   shape: "dot",
+        //   size: 16,
+        // },
+        // physics: {
+        //   forceAtlas2Based: {
+        //     gravitationalConstant: -26,
+        //     centralGravity: 0.005,
+        //     springLength: 230,
+        //     springConstant: 0.18,
+        //   },
+        //   maxVelocity: 146,
+        //   solver: "forceAtlas2Based",
+        //   timestep: 0.35,
+        //   stabilization: { iterations: 150 },
+        // },
       };
       var network = new vis.Network(container, data, options);
       network.on("click", function(params) {
@@ -193,13 +247,21 @@ if($status==false) {
           // console.log(userdata[i].sov);
           // console.log(dataid);
 
-          updateEdgesArray.push ({from: dataid, to: userdata[i].sov, arrows: 'to'});
+          updateEdgesArray.push ({from: dataid, to: userdata[i].sov, arrows: 'to'}, {from: dataid, to: userdata[i].sov2, arrows: 'to'});
+          // if (userdata[i].sov2 != null){
+          //   updateEdgesArray.push ({from: dataid, to: userdata[i].sov2, arrows: 'to'});
+          // }
+
           // console.log(updateEdgesArray);
           // console.log(nodes);
         }
         edges.update(updateEdgesArray);
       };
       addData()
+
+      //背景画像
+      var sourceCanvas = document.querySelector('canvas');
+      sourceCanvas.style.backgroundImage = "url('https://sorae.info/wp-content/uploads/2019/03/heic1901a.jpg')";
 </script>
 </body>
 </html>
