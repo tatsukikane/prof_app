@@ -26,7 +26,7 @@ if($status==false){
   exit("SQL_Error:".$error[2]);
 }else{
   //５．index.phpへリダイレクト
-  header("Location: user_index.php");
+  header("Location: select.php");
   exit();
 }
 ?>

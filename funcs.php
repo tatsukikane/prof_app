@@ -40,6 +40,17 @@ function redirect($file_name){
     exit();
 }
 
+//todo sschk関数作成
+function sschk(){
+    //chk_ssidがあって、idも同じだったら
+    if(!isset($_SESSION["chk_ssid"]) || $_SESSION["chk_ssid"]!=session_id()){
+        exit("Login Error");
+    }else{
+      //ハッキング対策で画面遷移するたびに、idを変える
+        session_regenerate_id(true); //ここでセッションidを変えてくれる
+        $_SESSION["chk_ssid"] = session_id();
+    }
+}
 
 
 

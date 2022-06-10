@@ -3,7 +3,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>管理USER登録</title>
+  <title>アカウント登録</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <style>div{padding: 10px;font-size:16px;}</style>
 </head>
@@ -12,9 +12,10 @@
 <!-- Head[Start] -->
 <header>
   <nav class="navbar navbar-default">
+    <h1>新規登録</h1>
     <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="select.php">ユーザーページへ戻る</a></div>
-    <div class="navbar-header"><a class="navbar-brand" href="user_select.php">USER管理TOP</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="select.php">Guestでログイン</a></div>
+
 
 
     </div>
@@ -26,16 +27,11 @@
 <form method="post" action="user_insert.php">
   <div class="jumbotron">
    <fieldset>
-    <legend>管理ユーザー作成</legend>
+    <legend>アカウント登録</legend>
      <label>名前：<input type="text" name="name"></label><br>
      <label>ログインID:<input type="text" name="lid"></label><br>
      <label>ログインパスワード:<input type="text" name="lpw"></label><br>
-     <label>権限:
-      <select name="kanri_flg">
-        <option value=0>管理者</option>
-        <option value=1>SP管理者</option>
-      </select>
-     </label><br>
+     <input type="hidden" name="kanri_flg" value=0>
      <input type="submit" value="送信">
     </fieldset>
   </div>

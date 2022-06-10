@@ -1,6 +1,10 @@
 <?php
+session_start();
+
 //編集画面(一覧表示、削除や編集)
 include("funcs.php");
+sschk();
+
 $pdo = db_conn();  //接続設定
 
 $stmt = $pdo->prepare("SELECT * FROM sov_map_table");
@@ -17,16 +21,20 @@ if($status==false) {
   while( $r = $stmt->fetch(PDO::FETCH_ASSOC)){
     $view .= '<tr>';
     $view .= '<td>';
-    $view .= '<a href="user_detail.php?id='.h($r["id"]).'">'.h($r["id"]);
+    $view .= '<a href="detail.php?id='.h($r["id"]).'">'.h($r["id"]);
     $view .= '</td><td></a>';
-    $view .= '<a href="user_detail.php?id='.h($r["id"]).'">'.h($r["name"]);
+    $view .= '<a href="detail.php?id='.h($r["id"]).'">'.h($r["name"]);
     $view .= '</a></td><td>';
     $view .= h($r["insta"]);
     $view .= '</td><td>';
     $view .= h($r["indate"]);
-    $view .= '</td><td>';
+    $view .= '</td>';
+    $view .= '<td>';
     $view .= '<a href="delete.php?id='.h($r["id"]).'">';
-    $view .= "[削除]";
+    if($_SESSION["userid"]==$r["userid"]){
+      $view .= "[削除]";
+    }
+    // $view .= "[削除]";
     $view .= '</a></td></tr>';
   }
 }
@@ -50,11 +58,11 @@ if($status==false) {
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <h1>編集画面</h1>
+      <h1>ユーザー一覧(自分の物だけ編集可)</h1>
       <div class="navbar-header">
       <div class="navbar-header"><a class="navbar-brand" href="index.php">データ登録</a></div>
       <div class="navbar-header"><a class="navbar-brand" href="select.php">MAP</a></div>
-      <div class="navbar-header"><a class="navbar-brand" href="user_select.php">USER管理画面</a></div>
+      <div class="navbar-header"><a class="navbar-brand" href="user_select.php">User設定</a></div>
       </div>
     </div>
   </nav>

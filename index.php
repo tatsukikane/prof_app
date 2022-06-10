@@ -1,3 +1,10 @@
+<?php
+session_start();
+// echo $_SESSION["userid"];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -14,8 +21,8 @@
   <h1>登録画面</h1>
     <div class="container-fluid">
     <div class="navbar-header"><a class="navbar-brand" href="select.php">MAP</a></div>
-    <div class="navbar-header"><a class="navbar-brand" href="edit.php">編集画面</a></div>
-    <div class="navbar-header"><a class="navbar-brand" href="user_select.php">USER管理画面</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="edit.php">User一覧</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="user_select.php">User設定</a></div>
 
     </div>
   </nav>
@@ -56,7 +63,7 @@
 
      <label>キャリア：<textArea name="career" rows="4" cols="40"></textArea></label><br>
      <label>人生価値観詳細：<textArea name="sov_detail" rows="4" cols="40"></textArea></label><br>
-
+     <input type="hidden" name="userid" value="<?=$_SESSION["userid"]?>">
      <input type="submit" value="送信">
     </fieldset>
   </div>

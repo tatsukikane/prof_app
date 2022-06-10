@@ -3,8 +3,7 @@
 }
 
 #network{
-  height: 480px;
-  border-top: double 1px;
+  height: 600px !important;
 }
 
 /* .prof_area{
@@ -28,4 +27,8 @@ span {
 }
 .topt{
   background:linear-gradient(transparent 60%, #00bfff 60%);
+}
+.container-fluid{
+  display: flex;
+  justify-content: center;
 }

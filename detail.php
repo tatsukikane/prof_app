@@ -1,5 +1,6 @@
 <?php
 //データ更新用ページ
+session_start();
 $id = $_GET["id"];
 
 include("funcs.php");
@@ -8,12 +9,17 @@ $pdo = db_conn();
 $stmt = $pdo->prepare("SELECT * FROM sov_map_table WHERE id=:id");
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $status = $stmt->execute();
+//$r = $stmt->fetch(PDO::FETCH_ASSOC);
+// echo $r;
 
 $view="";
 if($status==false){
   sql_error($stmt);
 }else{
   $row = $stmt->fetch();
+  if($_SESSION["userid"]==$row["userid"]){
+    $view .= '<input type="submit" value="送信">';
+  }
 }
 ?>
 
@@ -41,7 +47,7 @@ if($status==false){
 <form method="POST" action="update.php">
   <div class="jumbotron">
    <fieldset>
-    <legend>プロフィール編集</legend>
+    <legend>プロフィール</legend>
      <label>名前：<input type="text" name="name" value="<?=$row["name"]?>"></label><br>
      <label>insta:<input type="text" name="insta" value="<?=$row["insta"]?>"></label><br>
      <label>twitter:<input type="text" name="twitter" value="<?=$row["twitter"]?>"></label><br>
@@ -66,7 +72,8 @@ if($status==false){
      <p>最終更新：<?=$row["indate"]?></p>
 
      <input type="hidden" name="id" value="<?=$id?>">
-     <input type="submit" value="送信">
+     <!-- <input type="submit" value="送信"> -->
+     <?=$view?>
 
     </fieldset>
   </div>

@@ -1,4 +1,9 @@
 <?php
+// session_start();
+include("funcs.php");
+
+// sschk();
+
 //map画面
 //1.  DB接続します
 try {
@@ -20,7 +25,6 @@ if($status==false) {
     //execute（SQL実行時にエラーがある場合）
   $error = $stmt->errorInfo();
   exit("SQL Error:".$error[2]);
-
 }else{
   //Selectデータの数だけ自動でループしてくれる
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
@@ -72,10 +76,11 @@ if($status==false) {
   <nav class="navbar navbar-default">
     <h1>Map</h1>
     <div class="container-fluid">
-      <div class="navbar-header">
-      <a class="navbar-brand" href="index.php">データ登録</a>
-      <div class="navbar-header"><a class="navbar-brand" href="edit.php">編集画面</a></div>
-      <div class="navbar-header"><a class="navbar-brand" href="user_select.php">USER管理画面</a></div>
+      <div class="navbar-header"><a class="navbar-brand" href="index.php">データ登録</a></div>
+      <div class="navbar-header"><a class="navbar-brand" href="edit.php">User一覧(編集)</a></div>
+      <div class="navbar-header"><a class="navbar-brand" href="user_select.php">User設定</a></div>
+      <div class="navbar-header"><a class="navbar-brand" href="user_logout.php">ログアウト</a></div>
+
       </div>
     </div>
   </nav>
