@@ -70,17 +70,17 @@ if($status==false) {
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <h1>User設定</h1>
-        <!-- <?=$_SESSION["name"]?>さん、こんにちは!
-      <p><?=$_SESSION["name"]?>さん、こんにちは!</p> -->
       <!-- <div class="navbar-header"> -->
       <!-- <div class="navbar-header"><a class="navbar-brand" href="user_index.php">管理ユーザー登録</a></div> -->
-      <div class="navbar-header"><a class="navbar-brand" href="select.php">ユーザーページへ戻る</a></div>
+      <div class="navbar-header"><a class="navbar-brand" href="select.php">TOPへ戻る</a></div>
       <div class="navbar-header"><a class="navbar-brand" href="user_logout.php">ログアウト</a></div>
       </div>
     </div>
   </nav>
 </header>
-<h2><?=$_SESSION["name"]?>さん、こんにちは!</h2>
+<div class="container">
+  <h2><?=$_SESSION["name"]?>さん、こんにちは!</h2>
+</div>
 
 <!-- Head[End] -->
 

@@ -3,7 +3,9 @@
 session_start();
 $name = $_POST["name"];
 $lid = $_POST["lid"];
-$lpw = $_POST["lpw"];
+$dfpw = $_POST["lpw"];
+$lpw = password_hash($dfpw, PASSWORD_DEFAULT);
+password_hash("tkpas", PASSWORD_DEFAULT);
 $kanri_flg = $_POST["kanri_flg"];
 
 //2. DB接続

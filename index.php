@@ -1,6 +1,8 @@
 <?php
 session_start();
-echo $_SESSION["userid"];
+//echo $_SESSION["userid"];
+include("funcs.php");
+sschk();
 
 ?>
 
@@ -22,7 +24,7 @@ echo $_SESSION["userid"];
     <div class="container-fluid">
       <h1>登録画面</h1>
       <div class="navbar-header">
-      <div class="navbar-header"><a class="navbar-brand" href="select.php">MAP</a></div>
+      <div class="navbar-header"><a class="navbar-brand" href="select.php">TOP</a></div>
       <div class="navbar-header"><a class="navbar-brand" href="edit.php">User一覧</a></div>
       <div class="navbar-header"><a class="navbar-brand" href="user_select.php">User設定</a></div>
     </div>
@@ -33,6 +35,7 @@ echo $_SESSION["userid"];
 <!-- Main[Start] -->
 <form method="post" action="insert.php">
   <div class="jumbotron">
+  <div class="container">
    <fieldset>
     <legend>プロフィール作成</legend>
      <label>名前：<input type="text" name="name"></label><br>
@@ -68,6 +71,7 @@ echo $_SESSION["userid"];
      <input type="submit" value="送信">
     </fieldset>
   </div>
+</div>
 </form>
 <!-- Main[End] -->
 

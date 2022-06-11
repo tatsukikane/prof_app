@@ -77,7 +77,7 @@ if($status==false) {
     <div class="container-fluid">
       <h1>Map</h1>
       <div class="navbar-header">
-        <div class="navbar-header"><a class="navbar-brand" href="index.php">データ登録</a></div>
+        <div class="navbar-header"><a class="navbar-brand" href="index.php">プロフィール登録</a></div>
         <div class="navbar-header"><a class="navbar-brand" href="edit.php">User一覧(編集)</a></div>
         <div class="navbar-header"><a class="navbar-brand" href="user_select.php">User設定</a></div>
         <div class="navbar-header"><a class="navbar-brand" href="user_logout.php">ログアウト</a></div>

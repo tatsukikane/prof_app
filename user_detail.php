@@ -51,9 +51,9 @@ if($status==false){
      <label>名前：<input type="text" name="name" value="<?=$row["name"]?>"></label><br>
      <label>ログインID:<input type="text" name="lid" value="<?=$row["lid"]?>"></label><br>
      <label>ログインパスワード:<input type="text" name="lpw" value="<?=$row["lpw"]?>"></label><br>
-     <label>権限コード:<input type="text" name="kanri_flg" value="<?=$row["kanri_flg"]?>"></label><br>
      <a class="btn btn-danger" href="delete.php?id='.$r["id"].'">[<i class="glyphicon glyphicon-remove"></i>削除]</a><br>
      <input type="hidden" name="id" value="<?=$id?>">
+     <input type="hidden" name="kanri_flg" value="<?=$row["kanri_flg"]?>">
      <input type="submit" value="送信">
 
     </fieldset>
