@@ -1,5 +1,9 @@
 <?php
 session_start();
+// echo $_SESSION["chk_ssid"];
+// echo $_SESSION["kanri_flg"];
+// echo $_SESSION["name"];
+// echo $_SESSION["userid"];
 
 //編集画面(一覧表示、削除や編集)
 include("funcs.php");
@@ -51,6 +55,8 @@ if($status==false) {
 <title>管理画面</title>
 <link rel="stylesheet" href="css/range.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="./header.css" rel="stylesheet">
+
 <style>div{padding: 10px;font-size:16px;}</style>
 </head>
 <body id="main">
@@ -63,7 +69,6 @@ if($status==false) {
       <div class="navbar-header"><a class="navbar-brand" href="index.php">データ登録</a></div>
       <div class="navbar-header"><a class="navbar-brand" href="select.php">MAP</a></div>
       <div class="navbar-header"><a class="navbar-brand" href="user_select.php">User設定</a></div>
-      </div>
     </div>
   </nav>
 </header>

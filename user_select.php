@@ -60,6 +60,8 @@ if($status==false) {
 <title>User設定</title>
 <link rel="stylesheet" href="css/range.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./header.css">
+
 <style>div{padding: 10px;font-size:16px;}</style>
 </head>
 <body id="main">
@@ -68,17 +70,18 @@ if($status==false) {
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <h1>User設定</h1>
-        <?=$_SESSION["name"]?>さん、こんにちは!
-      <p></p>
+        <!-- <?=$_SESSION["name"]?>さん、こんにちは!
+      <p><?=$_SESSION["name"]?>さん、こんにちは!</p> -->
       <!-- <div class="navbar-header"> -->
       <!-- <div class="navbar-header"><a class="navbar-brand" href="user_index.php">管理ユーザー登録</a></div> -->
       <div class="navbar-header"><a class="navbar-brand" href="select.php">ユーザーページへ戻る</a></div>
       <div class="navbar-header"><a class="navbar-brand" href="user_logout.php">ログアウト</a></div>
-
       </div>
     </div>
   </nav>
 </header>
+<h2><?=$_SESSION["name"]?>さん、こんにちは!</h2>
+
 <!-- Head[End] -->
 
 <!-- Main[Start] -->

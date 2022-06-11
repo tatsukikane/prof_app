@@ -10,7 +10,7 @@
 <body>
 
 <header>
-  <nav class="navbar navbar-default"><h1>TunaMap</h1></nav>
+  <nav class="navbar navbar-default"><h1>TunaMap&#128031;</h1></nav>
 </header>
 
 <h1>ログイン</h1>

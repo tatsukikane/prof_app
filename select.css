@@ -1,7 +1,6 @@
 .prof_area{
   display: none;
 }
-
 #network{
   height: 600px !important;
 }
@@ -21,14 +20,13 @@
   justify-content: center;
 } 
 span {
- 
   background:linear-gradient(transparent 60%, #ff6 60%);
-
 }
 .topt{
   background:linear-gradient(transparent 60%, #00bfff 60%);
 }
 .container-fluid{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
 }
