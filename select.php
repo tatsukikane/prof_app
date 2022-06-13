@@ -75,7 +75,7 @@ if($status==false) {
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <h1>Map</h1>
+      <h1>TunaMap&#128031;</h1>
       <div class="navbar-header">
         <div class="navbar-header"><a class="navbar-brand" href="index.php">プロフィール登録</a></div>
         <div class="navbar-header"><a class="navbar-brand" href="edit.php">User一覧(編集)</a></div>
